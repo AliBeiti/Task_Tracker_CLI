@@ -51,7 +51,7 @@ def mark_in_progress(id):
     tasks = load_tasks()
     for task in tasks:
         if task["id"] == id:
-            task["status"] = "in progress"
+            task["status"] = "in-progress"
             task["updatedAt"] = time.time()
             break
     save_tasks(tasks)
@@ -67,10 +67,55 @@ def mark_done(id):
     save_tasks(tasks)
 
 
-def print(tasks):
-    return 0
+def print_tasks(sort=None):
+    tasks = load_tasks()
+    if sort is None:
+        print("All Tasks.")
+        print(f"{'ID':<5} {'Task Description':<50} {'Status':<12} {'Created At':<20}")
+        print("-" * 90)
+        for task in tasks:
+            dt = datetime.fromtimestamp(task["createdAt"])
+            print(
+                f"{task["id"]:<5} {task["description"]:<50} {task["status"]:<12} {dt}")
+    else:
+        if sort == "done":
+            print("Tasks are done:")
+            print(
+                f"{'ID':<5} {'Task Description':<50} {'Status':<12} {'Created At':<20}")
+            print("-" * 90)
+            for task in tasks:
+                if task["status"] == sort:
+                    dt = datetime.fromtimestamp(task["createdAt"])
+                    print(
+                        f"{task["id"]:<5} {task["description"]:<50} {task["status"]:<12} {dt}")
+        elif sort == "todo":
+            print("Tasks are todo:")
+            print(
+                f"{'ID':<5} {'Task Description':<50} {'Status':<12} {'Created At':<20}")
+            print("-" * 90)
+            for task in tasks:
+                if task["status"] == sort:
+                    dt = datetime.fromtimestamp(task["createdAt"])
+                    print(
+                        f"{task["id"]:<5} {task["description"]:<50} {task["status"]:<12} {dt}")
+        elif sort == "in-progress":
+            print("Tasks are in progress:")
+            print(
+                f"{'ID':<5} {'Task Description':<50} {'Status':<12} {'Created At':<20}")
+            print("-" * 90)
+            for task in tasks:
+                if task["status"] == sort:
+                    dt = datetime.fromtimestamp(task["createdAt"])
+                    print(
+                        f"{task["id"]:<5} {task["description"]:<50} {task["status"]:<12} {dt}")
+        else:
+            print("The sorting key words are 'done', 'todo', 'in-progress' . Please use these keywords for sorting tasks.")
 
 
-add("fifth task")
 delete(3)
 mark_in_progress(4)
+print_tasks()
+print_tasks("done")
+print_tasks("todo")
+print_tasks("in-progress")
+print_tasks("something")
