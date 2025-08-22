@@ -26,3 +26,5 @@ git clone https://github.com/AliBeiti/Task_Tracker_CLI.git
 cd Task_Tracker_CLI
 pip install .
 ```
+
+![task-cli screenshot](images/Capture.PNG)
