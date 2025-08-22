@@ -26,3 +26,5 @@ cd Task_Tracker_CLI
 pip install .
 
 ````
+
+![task-cli Screenshot](images/Capture.PNG)
