@@ -13,10 +13,11 @@ A command-line application to manage your to-do tasks efficiently.
 
 ## 📦 Installation
 
-### Option 1: Install via GitHub (for now)
+### Option 1: Install via GitHub
 
-````bash
+```bash
 pip install git+https://github.com/AliBeiti/Task_Tracker_CLI.git
+```
 
 ### Option 2: From local folder (for dev use)
 
@@ -24,7 +25,4 @@ pip install git+https://github.com/AliBeiti/Task_Tracker_CLI.git
 git clone https://github.com/AliBeiti/Task_Tracker_CLI.git
 cd Task_Tracker_CLI
 pip install .
-
-````
-
-![task-cli Screenshot](images/Capture.PNG)
+```
